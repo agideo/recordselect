@@ -1,6 +1,6 @@
 {
   "name": "recordselect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Record Select JsonP",
   "main": "recordselect.js",
   "scripts": {
@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.1.1"
+    "jquery": "^1.12.4"
   }
 }
