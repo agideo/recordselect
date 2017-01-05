@@ -1,4 +1,7 @@
 /*
+ * 1.0.5
+ * 添加选择 displayValue
+ *
  * 1.0.3
  * 支持https
  *
@@ -80,8 +83,13 @@ define(function(require, exports, module) {
   }
 
   Recordselect.prototype.set = function(id, label) {
-    this.obj.val(label);
-    this.hidden_input.val(label + '|||' + id);
+    if(this.options.displayValue) {
+      this.obj.val(id);
+      this.hidden_input.val(id);
+    } else {
+      this.obj.val(label);
+      this.hidden_input.val(label + '|||' + id);
+    }
   }
 
   Recordselect.prototype.onbodyclick = function(ev) {
@@ -105,7 +113,11 @@ define(function(require, exports, module) {
     //init values
     if (this.obj.val().length > 0) {
       var val_arr = this.obj.val().split('|||', 2);
-      this.set(val_arr[1], val_arr[0]);
+      if(val_arr.length > 1) {
+        this.set(val_arr[1], val_arr[0]);
+      } else {
+        this.set(val_arr[0], val_arr[0]);
+      }
     }
 
     // event
